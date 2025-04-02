@@ -24,7 +24,6 @@ public class LoginAuthenticationProvider implements AuthenticationProvider {
 
     private final PasswordEncoder encoder;
 
-    @Autowired
     public LoginAuthenticationProvider(final UserService userService) {
         this.userService = userService;
         this.encoder = new BCryptPasswordEncoder();

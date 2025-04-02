@@ -1,0 +1,38 @@
+server:
+  port: ${APP_PORT:9090}
+  servlet:
+    context-path: /api/v1
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${POSTGRES_URL:jdbc:postgresql://localhost:5433/postgres}
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+  liquibase:
+    change-log: /changelog/changelog-master.xml
+    enabled: true
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: ${GOOGLE_CLIENT_ID}
+            clientSecret: ${GOOGLE_CLIENT_SECRET}
+            redirectUri: "http://localhost:9090/api/v1/login/oauth2/code/google"
+logging:
+  level:
+    org:
+      springframework:
+#        web: DEBUG
+#        security: DEBUG
+springdoc:
+    api-docs:
+        path: /api-docs
+    swagger-ui:
+      path: /swagger-ui.html
+security:
+  # JWT parameters
+  jwt:
+    secret: ${JWT_SECRET}
+    tokenExpirationTime: ${JWT_TOKEN_EXPIRATION_TIME:3600} # in seconds (default: 1h)
+    refreshTokenExpirationTime: ${JWT_REFRESH_TOKEN_EXPIRATION_TIME:1209600000} # in seconds (default: 14 days)

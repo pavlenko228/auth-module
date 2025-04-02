@@ -13,7 +13,6 @@ public class RestAuthenticationFailureHandler implements AuthenticationFailureHa
 
     private final ErrorResponseHandler errorResponseHandler;
 
-    @Autowired
     public RestAuthenticationFailureHandler(final ErrorResponseHandler errorResponseHandler) {
         this.errorResponseHandler = errorResponseHandler;
     }

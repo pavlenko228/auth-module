@@ -18,7 +18,6 @@ public class RefreshTokenAuthenticationProvider implements AuthenticationProvide
 
     private final JwtTokenProvider tokenProvider;
 
-    @Autowired
     public RefreshTokenAuthenticationProvider(final UserService userService,
                                               final JwtTokenProvider tokenProvider) {
         this.userService = userService;
